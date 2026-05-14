@@ -11,9 +11,7 @@ COPY pyproject.toml poetry.lock* ./
 RUN poetry config virtualenvs.create false \
     && poetry install --only main --no-root --no-interaction --no-ansi
 
-COPY app.py ./
-
-RUN chown -R appuser:appuser /app
+COPY --chown=appuser:appuser app.py ./
 
 USER appuser
 
