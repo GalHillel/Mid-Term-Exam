@@ -45,7 +45,7 @@ echo "--- Validating Nginx configuration ---"
 nginx -t
 
 echo "--- Enabling and Reloading Nginx ---"
-systemctl enable nginx
+systemctl enable --now nginx
 systemctl reload nginx
 
 # Get the vm ip to display to the user
@@ -53,5 +53,4 @@ VM_IP=$(hostname -I | awk '{print $1}')
 echo ""
 echo "=========================================================="
 echo "SUCCESS! Service is up and running."
-echo "You can reach the Status Dashboard at: http://${VM_IP}/"
 echo "=========================================================="
